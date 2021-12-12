@@ -174,17 +174,12 @@ const HomeScreen = (props: IHeaderComponentProps) => {
                   const urlBanner = bannerData.dataBanner.top.link;
                   if (urlBanner !== '') handlePress(urlBanner);
                 }}>
-                {bannerData.dataBanner &&
-                bannerData.dataBanner.top &&
-                bannerData.dataBanner.top.image ? (
-                  <HeaderBanner
-                    imgBanner={{uri: bannerData.dataBanner.top.image}}
-                  />
-                ) : (
-                  <HeaderBanner
-                    imgBanner={require('../../assets/img/logoBanner.png')}
-                  />
-                )}
+                <HeaderBanner
+                  // imgBanner={require('../../assets/img/logoBanner.gif')}
+                  imgBanner={{
+                    uri: 'https://sao.baophapluat.vn/default/template/img/logophapluatsao.gif',
+                  }}
+                />
               </TouchableOpacity>
             </Animated.View>
             <View>

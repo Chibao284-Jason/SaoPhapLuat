@@ -77,7 +77,8 @@ export const colors = {
   easternBlue: '#22A6A0',
   allports: "#006F9C",
   milanoRed: '#B3110D',
-  grayApprox: '#888888'
+  grayApprox: '#888888',
+  dodgerBlue: '#1ECDFF'
 };
 
 
@@ -105,7 +106,7 @@ export const colorGlobal = {
   textInputBg: colors.grey7,
   textInputBorder: colors.gray4,
   sliderDefault: colors.easternBlue,
-  tabBarBg: colors.milanoRed,
+  tabBarBg: colors.dodgerBlue,
   loadingColor: colors.milanoRed,
 
   //ICONS

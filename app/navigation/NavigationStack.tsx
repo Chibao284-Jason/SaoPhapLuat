@@ -12,8 +12,10 @@ import HomeScreen from '@screens/HomeScreen/HomeScreen';
 import MenuScreen from '@screens/MenuScreen/MenuScreen';
 import SearchScreen from '@screens/SearchScreen/SearchScreen';
 import SearchComponent from '@components/SearchComponent/SearchComponent';
-import RNBootSplash from 'react-native-bootsplash';
+// import RNBootSplash from 'react-native-bootsplash';
+import SplashScreen from 'react-native-splash-screen';
 import {Platform} from 'react-native';
+import Temp from '@screens/HomeScreen/Temp';
 const Stack = createStackNavigator();
 
 interface NavigationContainerProps {}
@@ -61,10 +63,14 @@ const MainScreen = () => {
 };
 const NavigationStack = (props: NavigationContainerProps) => {
   return (
+    // <NavigationContainer
+    //   onReady={() =>
+    //     Platform.OS === 'ios' ? RNBootSplash.hide({fade: false}) : null
+    //   }>
     <NavigationContainer
-      onReady={() =>
-        Platform.OS === 'ios' ? RNBootSplash.hide({fade: false}) : null
-      }>
+      onReady={() => {
+        SplashScreen.hide();
+      }}>
       <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="MainScreen" component={MainScreen} />
       </Stack.Navigator>

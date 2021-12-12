@@ -5,7 +5,7 @@ type IColorTheme = {
   color: string
 }
 const initialState: IColorTheme = {
-  color: colorGlobal.sliderDefault
+  color: colorGlobal.tabBarBg
 }
 
 export const ChangeThemeColorReducer = (state = initialState, action: IChangeThemeColor) => {

@@ -17,7 +17,7 @@ const HeaderBanner = (props: IHeaderBannerProps) => {
         source={
           imgBanner !== '' && imgBanner !== undefined
             ? imgBanner
-            : require('../../../assets/img/logoBanner.png')
+            : require('../../../assets/img/logoBanner.gif')
         }
         resizeMode="contain"
       />

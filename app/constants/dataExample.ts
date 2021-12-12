@@ -39,7 +39,7 @@ interface IDataColorTheme {
 export const dataColorTheme: IDataColorTheme[] = [
   {
     id: 0,
-    color: colors.milanoRed,
+    color: colors.dodgerBlue,
     isSelect: false,
   },
   {
