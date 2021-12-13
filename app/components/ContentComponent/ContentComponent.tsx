@@ -149,7 +149,7 @@ const ContentComponent = (props: IContentComponentProps) => {
       scrollEventThrottle={16}
       showsVerticalScrollIndicator={false}
       onScroll={e => onEndBack(e)}>
-      {video !== '' && (
+      {video !== '' && video !== null && video !== undefined && (
         <>
           <VideoPlayer
             source={{uri: video}}
@@ -179,7 +179,7 @@ const ContentComponent = (props: IContentComponentProps) => {
         </View>
         <View style={styles.viewAudio}>
           <Text style={styles.textCreate(font, fontSize)}>{timeCreate}</Text>
-          {audio !== '' && (
+          {audio !== '' && audio !== null && audio !== undefined && (
             <View style={styles.viewSound}>
               <TouchableOpacity
                 style={styles.thumbnailAudio}

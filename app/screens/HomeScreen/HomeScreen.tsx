@@ -1,11 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {
-  View,
-  FlatList,
-  TouchableOpacity,
-  Animated,
-  Linking,
-} from 'react-native';
+import {View, FlatList, TouchableOpacity, Linking} from 'react-native';
 import {screenName} from '@navigation/screenName';
 import ListNewsScreen from '@screens/ListNewsScreen/ListNewsScreen';
 import {Icon} from 'react-native-elements';
@@ -26,11 +20,6 @@ import {
 } from './types';
 import {IconMenu} from '@components/IconMenuComponent/IconMenu';
 import {TabBarItem} from '@components/TabBarItemComponent/TabBarItem';
-import {
-  HEADER_MAX_HEIGHT,
-  HEADER_MIN_HEIGHT,
-  HEADER_SCROLL_DISTANCE,
-} from '@constants/sizeDefault';
 import ImageViewLoading from '@components/ImagePlaceholder/index';
 import ImagePlaceholder from '@components/ImagePlaceholder/ImagePlaceholder';
 import Banner from '@components/Banner/Banner';
@@ -38,7 +27,6 @@ const HomeScreen = (props: IHeaderComponentProps) => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const route = useRoute<any>();
-  const [scrollY, setScrollY] = useState(new Animated.Value(0));
   const [pressCats, setPressCats] = useState<boolean>(false);
   const [pageCurrent, setPageCurrent] = useState(2);
   const [idCatsCurrent, setIdCatsCurrent] = useState('');
@@ -152,11 +140,6 @@ const HomeScreen = (props: IHeaderComponentProps) => {
     }
   }, [isLoadingListNews]);
 
-  const headerHeight = scrollY.interpolate({
-    inputRange: [HEADER_MIN_HEIGHT, HEADER_SCROLL_DISTANCE],
-    outputRange: [HEADER_MAX_HEIGHT, HEADER_MIN_HEIGHT],
-    extrapolate: 'clamp',
-  });
   const handlePress = useCallback(async (url: string) => {
     await Linking.openURL(url);
   }, []);
@@ -166,7 +149,7 @@ const HomeScreen = (props: IHeaderComponentProps) => {
       {!isLoadingListTab && dataCategories ? (
         <View style={styles.container}>
           <View style={styles.viewHeader}>
-            <Animated.View style={{height: headerHeight}}>
+            <View>
               <TouchableOpacity
                 style={styles.viewBanner}
                 onPress={() => {
@@ -181,7 +164,7 @@ const HomeScreen = (props: IHeaderComponentProps) => {
                   }}
                 />
               </TouchableOpacity>
-            </Animated.View>
+            </View>
             <View>
               <LinearGradient
                 colors={colorTabBar}
@@ -241,10 +224,6 @@ const HomeScreen = (props: IHeaderComponentProps) => {
                 onEndReachedThreshold={3}
                 scrollEventThrottle={10}
                 scrollEnabled={true}
-                onScroll={Animated.event(
-                  [{nativeEvent: {contentOffset: {y: scrollY}}}],
-                  {useNativeDriver: false},
-                )}
                 data={!pressCats ? dataNews.rows : dataListNewsCats.rows}
                 onEndReached={({distanceFromEnd}) => {
                   if (distanceFromEnd < 50) return;

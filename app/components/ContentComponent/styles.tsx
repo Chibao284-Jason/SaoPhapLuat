@@ -98,6 +98,7 @@ export const styles: Styles = {
   },
   containerContent: {
     paddingHorizontal: 10,
+    paddingTop: 10,
   },
   viewLabel: {
     flexDirection: 'row',
