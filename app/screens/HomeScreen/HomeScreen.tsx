@@ -153,15 +153,12 @@ const HomeScreen = (props: IHeaderComponentProps) => {
               <TouchableOpacity
                 style={styles.viewBanner}
                 onPress={() => {
-                  // onPressCategories({id: 10000});
-                  const urlBanner = bannerData.dataBanner.top.link;
-                  if (urlBanner !== '') handlePress(urlBanner);
+                  onPressCategories({id: 10000});
+                  // const urlBanner = bannerData.dataBanner.top.link;
+                  // if (urlBanner !== '') handlePress(urlBanner);
                 }}>
                 <HeaderBanner
-                  // imgBanner={require('../../assets/img/logoBanner.gif')}
-                  imgBanner={{
-                    uri: 'https://sao.baophapluat.vn/default/template/img/logophapluatsao.gif',
-                  }}
+                  imgBanner={require('../../assets/img/logoBanner.gif')}
                 />
               </TouchableOpacity>
             </View>
