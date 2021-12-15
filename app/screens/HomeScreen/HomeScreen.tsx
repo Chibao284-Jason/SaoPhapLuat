@@ -50,6 +50,7 @@ const HomeScreen = (props: IHeaderComponentProps) => {
   useEffect(() => {
     if (route.params !== undefined) {
       setIdCatsCurrent(route.params.filters.News_Cats);
+      setPressCats(true);
     }
   }, [route.params]);
 
@@ -174,9 +175,10 @@ const HomeScreen = (props: IHeaderComponentProps) => {
                     navigation.navigate(screenName.MENU_SCREEN as never);
                   }}>
                   <IconMenu
-                    img={{
-                      uri: 'https://icon-library.com/images/menu-icon-png-3-lines/menu-icon-png-3-lines-5.jpg',
-                    }}
+                    // img={{
+                    //   uri: 'https://icon-library.com/images/menu-icon-png-3-lines/menu-icon-png-3-lines-5.jpg',
+                    // }}
+                    img={require('../../assets/img/iconMenu.jpeg')}
                   />
                 </TouchableOpacity>
                 <FlatList
